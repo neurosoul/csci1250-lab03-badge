@@ -29,8 +29,10 @@ Console.WriteLine("ID AND LOCKER:");
 
 Random rng = new Random();
 
-Console.WriteLine("Student ID: " + rng.Next(100000, 1000000));
-Console.WriteLine("Locker: " + rng.Next(1, 501));
+int studentID = rng.Next(100000, 1000000);
+Console.WriteLine("Student ID: " + studentID);
+int lockerNum = rng.Next(1, 501);
+Console.WriteLine("Locker: " + lockerNum);
 
 
 //Part 3: The Walk
@@ -59,3 +61,18 @@ int walkTimeSec = Convert.ToInt32(distance) % walkSpeed;
 
 Console.WriteLine("Distance: " + distance.ToString("F1") + " feet");
 Console.WriteLine("Walk time: " + walkTimeMin + " minutes " + walkTimeSec + " seconds");
+
+//Part 4: The Badge
+Console.WriteLine(" ");
+
+int checkDigit = studentID % 9;
+
+Console.WriteLine("==================================");
+Console.WriteLine("ETSU STUDENT BADGE".PadLeft(10));
+Console.WriteLine("==================================");
+Console.WriteLine("NAME".PadRight(10) + fullName);
+Console.WriteLine("USERNAME".PadRight(10) + fullName.Substring(0,1).ToLower() + lastName.ToLower());
+Console.WriteLine("ID".PadRight(10) + studentID + "-" + checkDigit);
+Console.WriteLine("LOCKER".PadRight(10) + lockerNum);
+Console.WriteLine("WALK".PadRight(10) + walkTimeMin + " min " + walkTimeSec + "sec");
+Console.WriteLine("==================================");
